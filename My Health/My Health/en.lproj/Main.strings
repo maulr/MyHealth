@@ -1,0 +1,78 @@
+
+/* Class = "IBUILabel"; text = "Age"; ObjectID = "0f6-ou-Pt5"; */
+"0f6-ou-Pt5.text" = "Age";
+
+/* Class = "IBUILabel"; text = "No StepCount"; ObjectID = "3gK-Te-rhP"; */
+"3gK-Te-rhP.text" = "No StepCount";
+
+/* Class = "IBUIButton"; normalTitle = "location"; ObjectID = "5QR-8f-5E3"; */
+"5QR-8f-5E3.normalTitle" = "location";
+
+/* Class = "IBUIViewController"; title = "UserLocation"; ObjectID = "6TE-pE-U0w"; */
+"6TE-pE-U0w.title" = "UserLocation";
+
+/* Class = "IBUILabel"; text = "State"; ObjectID = "6bG-tZ-5Im"; */
+"6bG-tZ-5Im.text" = "State";
+
+/* Class = "IBUILabel"; text = "DOB"; ObjectID = "A5E-qZ-HtH"; */
+"A5E-qZ-HtH.text" = "DOB";
+
+/* Class = "IBUILabel"; text = "No Weight"; ObjectID = "D3X-g0-9Ob"; */
+"D3X-g0-9Ob.text" = "No Weight";
+
+/* Class = "IBUILabel"; text = "StepCount"; ObjectID = "I4X-Ra-n0p"; */
+"I4X-Ra-n0p.text" = "StepCount";
+
+/* Class = "IBUILabel"; text = "No Height"; ObjectID = "KRx-RM-1VW"; */
+"KRx-RM-1VW.text" = "No Height";
+
+/* Class = "IBUILabel"; text = "Back ground color will change when data is updated automatically or by tapping Refresh."; ObjectID = "Q1Z-JJ-Dee"; */
+"Q1Z-JJ-Dee.text" = "Back ground color will change when data is updated automatically or by tapping Refresh.";
+
+/* Class = "IBUIButton"; normalTitle = "Refresh"; ObjectID = "SGy-XS-ABW"; */
+"SGy-XS-ABW.normalTitle" = "Refresh";
+
+/* Class = "IBUILabel"; text = "Weight"; ObjectID = "SeW-8K-Yvf"; */
+"SeW-8K-Yvf.text" = "Weight";
+
+/* Class = "IBUITabBarItem"; title = "I'm Lost"; ObjectID = "T7h-JA-ROM"; */
+"T7h-JA-ROM.title" = "I'm Lost";
+
+/* Class = "IBUILabel"; text = "Height"; ObjectID = "Vt5-2r-6Em"; */
+"Vt5-2r-6Em.text" = "Height";
+
+/* Class = "IBUILabel"; text = "My Profile"; ObjectID = "a2p-hl-JE6"; */
+"a2p-hl-JE6.text" = "My Profile";
+
+/* Class = "IBUILabel"; text = "No Age"; ObjectID = "cb2-nm-Ed4"; */
+"cb2-nm-Ed4.text" = "No Age";
+
+/* Class = "IBUILabel"; text = "No DOB "; ObjectID = "dIt-gV-CFb"; */
+"dIt-gV-CFb.text" = "No DOB ";
+
+/* Class = "IBUILabel"; text = "ZipCode"; ObjectID = "eSh-Py-xP8"; */
+"eSh-Py-xP8.text" = "ZipCode";
+
+/* Class = "IBUIViewController"; title = "ProfileViewController"; ObjectID = "g95-mM-eg0"; */
+"g95-mM-eg0.title" = "ProfileViewController";
+
+/* Class = "IBUILabel"; text = "House#"; ObjectID = "hQa-HB-pjj"; */
+"hQa-HB-pjj.text" = "House#";
+
+/* Class = "IBUILabel"; text = "Gender"; ObjectID = "lnU-p9-efl"; */
+"lnU-p9-efl.text" = "Gender";
+
+/* Class = "IBUITabBarItem"; title = "My Profile"; ObjectID = "nLO-KK-d9i"; */
+"nLO-KK-d9i.title" = "My Profile";
+
+/* Class = "IBUILabel"; text = "Walked/Ran Today:"; ObjectID = "piv-ye-lGs"; */
+"piv-ye-lGs.text" = "Walked/Ran Today:";
+
+/* Class = "IBUILabel"; text = "Street"; ObjectID = "tIl-uc-9uo"; */
+"tIl-uc-9uo.text" = "Street";
+
+/* Class = "IBUILabel"; text = "City"; ObjectID = "va4-Y2-aWg"; */
+"va4-Y2-aWg.text" = "City";
+
+/* Class = "IBUILabel"; text = "No Distance"; ObjectID = "zty-sV-yrq"; */
+"zty-sV-yrq.text" = "No Distance";
