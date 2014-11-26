@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7B34C2CB-A3EE-43F4-B261-9373AEB9F73F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>My Health</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>538D58204772078EB29F13F44A27057EB4AE4A9C</key>
+		<string>https://github.com/maulr/MyHealth.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>My Health/My Health.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>538D58204772078EB29F13F44A27057EB4AE4A9C</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/maulr/MyHealth.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>538D58204772078EB29F13F44A27057EB4AE4A9C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>538D58204772078EB29F13F44A27057EB4AE4A9C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MyHealth</string>
+		</dict>
+	</array>
+</dict>
+</plist>

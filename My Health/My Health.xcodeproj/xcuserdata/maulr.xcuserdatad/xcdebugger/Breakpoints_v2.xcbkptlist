@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/ProfileViewController.swift"
-            timestampString = "438556338.350238"
+            timestampString = "438666554.138149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "retrieveUsersWeight()"
             landmarkType = "5">
             <Locations>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/ProfileViewController.swift"
-            timestampString = "438556338.350238"
+            timestampString = "438666554.138149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "retrieveUsersWeight()"
             landmarkType = "5">
          </BreakpointContent>
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/ProfileViewController.swift"
-            timestampString = "438556338.350238"
+            timestampString = "438666554.138149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "348"
+            endingLineNumber = "348"
             landmarkName = "retrieveDistance(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -168,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/ProfileViewController.swift"
-            timestampString = "438556338.350238"
+            timestampString = "438666554.138149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
+            startingLineNumber = "380"
+            endingLineNumber = "380"
             landmarkName = "retrieveSteps(_:)"
             landmarkType = "5">
          </BreakpointContent>

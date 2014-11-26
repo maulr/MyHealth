@@ -21,9 +21,9 @@ class ProfileViewController: UIViewController {
     var timer = NSTimer()
     var backgroundColor = UIColor()
 
+    @IBOutlet weak var genderLbl: UILabel!
     @IBOutlet weak var counterLbl: UILabel!
 
-    @IBOutlet weak var genderLbl: UILabel!
     @IBOutlet weak var stepsLbl: UILabel!
     @IBOutlet weak var distLbl: UILabel!
     @IBOutlet weak var weightLbl: UILabel!
@@ -121,6 +121,7 @@ class ProfileViewController: UIViewController {
                 self.retrieveUsersWeight()
                 self.retrieveUsersAge()
                 self.retrieveUsersHeight()
+                self.myGender()
             })
 
         }
@@ -158,10 +159,36 @@ class ProfileViewController: UIViewController {
         var hieghtType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)
             HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMassIndex)
         var birthDayType: HKCharacteristicType = HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierDateOfBirth)
-        var genderType: HKCharacteristicType = HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBiologicalSex)
+        var genderType = HKCharacteristicType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBiologicalSex)
         var readDataTypes: NSSet = NSSet(objects: hieghtType, birthDayType, genderType,  distanceType,weightType,stepsType)
         return readDataTypes
     }
+
+/////////Retrieve user's gender//////////////////////////////////
+    func myGender() {
+
+        let genderType = self.healthStore?.biologicalSexWithError(nil)
+
+
+     if (genderType != nil) {
+      switch genderType!.biologicalSex{
+      case .Female:
+      dispatch_async(dispatch_get_main_queue(), { () -> Void in
+      self.genderLbl.text = "Female"
+      })
+      case .Male:
+      dispatch_async(dispatch_get_main_queue(), { () -> Void in
+      self.genderLbl.text = "Male"
+      })
+      default:
+      dispatch_async(dispatch_get_main_queue(), { () -> Void in
+      self.genderLbl.text = "No gender added"
+      })
+            }
+         }
+     }
+
+
 
 
 
