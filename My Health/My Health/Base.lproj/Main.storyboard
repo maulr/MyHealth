@@ -24,7 +24,7 @@
                                     <action selector="saveWeight:" destination="4fF-cN-aji" eventType="touchUpInside" id="MYL-Hr-1Nh"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="YT9-rH-fuX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="YT9-rH-fuX">
                                 <rect key="frame" x="73" y="109" width="174" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -314,8 +314,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Profile" id="nLO-KK-d9i">
-                        <inset key="imageInsets" minX="-6" minY="-4" maxX="-6" maxY="0.0"/>
+                    <tabBarItem key="tabBarItem" title="My Profile" image="Profile2.png" id="nLO-KK-d9i">
+                        <inset key="imageInsets" minX="-6" minY="14" maxX="-6" maxY="-47"/>
                     </tabBarItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -358,6 +358,9 @@
             <point key="canvasLocation" x="-873" y="-731"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Profile2.png" width="1016" height="762"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -20,6 +20,8 @@ class AddWeightViewController: UIViewController, UITextFieldDelegate {
 
 
     @IBAction func saveWeight(sender: AnyObject) {
+
+
          let weightQuantityType = HKQuantityType.quantityTypeForIdentifier(
             HKQuantityTypeIdentifierBodyMass)
 
@@ -37,20 +39,42 @@ class AddWeightViewController: UIViewController, UITextFieldDelegate {
         healthStore.saveObject(sample, withCompletion: {
             (succeeded: Bool, error: NSError!) in
             if error == nil{
+
+                let alertController = UIAlertController(title: "Weight", message:
+                    "Your weight has been saved", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
+                    handler: nil))
+
+                self.presentViewController(alertController, animated: true, completion: nil)
                 println("Successfully saved the user's weight")
+
             } else {
+
+                let alertController = UIAlertController(title: "Weight", message:
+                    "Your weight has not been saved", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
+                    handler: nil))
+
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+
+
                 println("Failed to save the user's weight")
             }
 
+
         })
-           self.addWeightTxt.resignFirstResponder()
-           self.addWeightTxt.text = ""
+            self.addWeightTxt.resignFirstResponder()
+            self.addWeightTxt.text = ""
+
 
     }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
         // Do any additional setup after loading the view, typically from a nib.
      }
 
