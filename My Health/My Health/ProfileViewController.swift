@@ -10,12 +10,21 @@ import Foundation
 import UIKit
 import HealthKit
 
+
+extension Double {
+    func format(f: String) -> String {
+        return NSString(format: "%\(f)f", self)
+    }
+}
+
 class ProfileViewController: UIViewController {
-    
+
+
+
     var healthStore: HKHealthStore? = nil
     var distance = 0.0
     var steps = 0
-
+    var totalDist = Double()
     var timerCount = 0
     var runTimer = false
     var timer = NSTimer()
@@ -329,23 +338,36 @@ class ProfileViewController: UIViewController {
 //////////////// Get distance walked or ran ////////////////////////////
     func retrieveDistance(completion: () -> ()) {
 
-
-        let distanceType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDistanceWalkingRunning)
+       let distanceType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDistanceWalkingRunning)
         self.retrieveTotalDataOfQuantityType(distanceType, completion: { (quantity, error) -> () in
             if let quantity = quantity {
   //              let distance = quantity.doubleValueForUnit(HKUnit.mileUnit())
                 self.distance = Double(quantity.doubleValueForUnit(HKUnit.mileUnit()))
-  //              self.distLbl.text = "\(self.distance)"
+                self.distLbl.text = "\(self.distance)"
 
-                println("how far did I walk? \(self.distance)")
+
+
+
+
+//              let miles = self.distance
+ //              println(lengthFormatter.stringFromMeters(miles))
+
+                println("did the miles round off?  \(self.totalDist)")
+                println("how far did I walk? \(self.totalDist)")
             }
             completion()
 
             dispatch_async(dispatch_get_main_queue(), {
                 () -> Void in
 
-                self.distLbl.text = "\(self.distance)"
-            if self.distLbl.text != nil && self.stepsLbl.text != nil {
+                 let myDistance = self.distance
+                 println(myDistance.format(".1"))
+                 var totalDist = myDistance.format(".2")
+
+                self.distLbl.text = ("\(totalDist)")
+                println(self.totalDist)
+
+                if self.distLbl.text != nil && self.stepsLbl.text != nil {
                 self.myActInd.stopAnimating()
 
             }

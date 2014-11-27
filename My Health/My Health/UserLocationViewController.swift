@@ -31,6 +31,7 @@ class UserLocationViewController: UIViewController, CLLocationManagerDelegate {
                 }
 
                 if placemarks.count > 0 {
+                    println("what is the count? \(placemarks.count)")
                     let pm = placemarks[0] as CLPlacemark
                     self.displayLocationInfo(pm)
                 } else {
@@ -64,9 +65,11 @@ class UserLocationViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     @IBAction func myLocation(sender: AnyObject) {
+        println("Button pressed for location")
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+
     }
 
     
