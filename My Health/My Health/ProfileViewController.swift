@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import HealthKit
 
-
+// Sets the decimal places in the distance walked/ran.
 extension Double {
     func format(f: String) -> String {
         return NSString(format: "%\(f)f", self)
@@ -433,7 +433,7 @@ class ProfileViewController: UIViewController {
         return 2
     }
 
- 
+   
 ////////////////// Refresh Data if they don't want to wait for timer./////////////////
     @IBAction func refreshButton(sender: AnyObject) {
         self.actIndStart()

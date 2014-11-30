@@ -148,7 +148,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/ProfileViewController.swift"
@@ -159,6 +159,36 @@
             endingLineNumber = "370"
             landmarkName = "retrieveDistance(_:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Health.ProfileViewController.(retrieveDistance (My_Health.ProfileViewController) -&gt; (() -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "My Health"
+                  urlString = "file:///Users/maulr/Desktop/MyHealth/My%20Health/My%20Health/ProfileViewController.swift"
+                  timestampString = "439051393.567299"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "370"
+                  endingLineNumber = "370"
+                  offsetFromSymbolStart = "716">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Health.ProfileViewController.(retrieveDistance (My_Health.ProfileViewController) -&gt; (() -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "My Health"
+                  urlString = "file:///Users/maulr/Desktop/MyHealth/My%20Health/My%20Health/ProfileViewController.swift"
+                  timestampString = "439051393.56744"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "370"
+                  endingLineNumber = "370"
+                  offsetFromSymbolStart = "2528">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
