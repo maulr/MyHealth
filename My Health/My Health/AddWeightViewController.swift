@@ -10,22 +10,22 @@ import Foundation
 import UIKit
 import HealthKit
 
-class AddWeightViewController: UIViewController, UITextFieldDelegate {
+class AddWeightViewController: UIViewController, UITextFieldDelegate{
 
+
+    
+    var myWeight: HKQuantitySample?
+    @IBOutlet weak var testLbl: UILabel!
+  //  @IBOutlet weak var resultsTextView: UITextView?
     @IBOutlet weak var addWeightTxt: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     let addWeightRightLbl = UILabel(frame:CGRectZero)
-    lazy var healthStore = HKHealthStore()
-
-
+     var healthStore = HKHealthStore()
 
     @IBAction func saveWeight(sender: AnyObject) {
 
-
-         let weightQuantityType = HKQuantityType.quantityTypeForIdentifier(
+        var weightQuantityType = HKQuantityType.quantityTypeForIdentifier(
             HKQuantityTypeIdentifierBodyMass)
-
-
 
         let weightUnit: HKUnit = HKUnit.poundUnit()
         let weightQuantity = HKQuantity(unit: weightUnit,
@@ -47,8 +47,7 @@ class AddWeightViewController: UIViewController, UITextFieldDelegate {
 
                 self.presentViewController(alertController, animated: true, completion: nil)
                 println("Successfully saved the user's weight")
-
-            } else {
+                            } else {
 
                 let alertController = UIAlertController(title: "Weight", message:
                     "Your weight has not been saved", preferredStyle: UIAlertControllerStyle.Alert)
@@ -74,9 +73,10 @@ class AddWeightViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+
+
         // Do any additional setup after loading the view, typically from a nib.
-     }
+    }
 
 /////////////// Setting up right side of textbox to show lbs for weight///////////
 
@@ -92,7 +92,13 @@ class AddWeightViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidAppear(animated: Bool) {
         self.rtSideTxt()
+
     }
+
+
+
+
+
 
 
 }

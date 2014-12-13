@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import HealthKit
 
+
 // Sets the decimal places in the distance walked/ran.
 extension Double {
     func format(f: String) -> String {
@@ -17,10 +18,12 @@ extension Double {
     }
 }
 
+
+
 class ProfileViewController: UIViewController {
 
 
-
+//    var passWeight = String()
     var healthStore: HKHealthStore? = nil
     var distance = 0.0
     var steps = 0
@@ -29,6 +32,8 @@ class ProfileViewController: UIViewController {
     var runTimer = false
     var timer = NSTimer()
     var backgroundColor = UIColor()
+    var heightValue = String()
+
 
     @IBOutlet weak var genderLbl: UILabel!
     @IBOutlet weak var counterLbl: UILabel!
@@ -80,7 +85,6 @@ class ProfileViewController: UIViewController {
         }
 
     }
-
 
 ///////////// Sets timer to update every 2 minutes///////////////////
     func startRefreshTimer() {
@@ -254,9 +258,9 @@ class ProfileViewController: UIViewController {
 
                 dispatch_async(dispatch_get_main_queue(), {
                     () -> Void in
-                    let heightValue: String = NSLocalizedString("Not available", comment: "")
+                   self.heightValue = NSLocalizedString("Not available", comment: "")
 
-                    setHeightInformationHandle(heightValue)
+                    setHeightInformationHandle(self.heightValue)
                 })
 
                 return
@@ -269,10 +273,10 @@ class ProfileViewController: UIViewController {
 /////////////////// Update the hieght label.////////////////////////////////////
             dispatch_async(dispatch_get_main_queue(), {
                 () -> Void in
-                let heightValue: String = NSNumberFormatter.localizedStringFromNumber(NSNumber(double: usersHeight), numberStyle: NSNumberFormatterStyle.NoStyle)
+                self.heightValue = NSNumberFormatter.localizedStringFromNumber(NSNumber(double: usersHeight), numberStyle: NSNumberFormatterStyle.NoStyle)
 
-                self.heightLbl.text = ("\(heightValue)")
-                println("\(heightValue)")
+                self.heightLbl.text = ("\(self.heightValue)")
+                println("\(self.heightValue)")
             })
 
         }
@@ -280,9 +284,12 @@ class ProfileViewController: UIViewController {
         self.healthStore!.mostRecentQuantitySampleOfType(heightType, predicate: nil, completion: completion)
         }
 /////////// Get the users weight info.//////////////////////////////////////
+
+
+
      func retrieveUsersWeight() -> Void
     {
-        let setWeightInformationHandle: ((String) -> Void) = {
+        var setWeightInformationHandle: ((String) -> Void) = {
             (weightValue) -> Void in
 
             let massFormatter: NSMassFormatter = NSMassFormatter()
@@ -313,10 +320,14 @@ class ProfileViewController: UIViewController {
                     setWeightInformationHandle(weightValue)
                     self.weightLbl.text =  ("\(weightValue)")
                     println("\(weightValue)")
+
                 })
+                
 
                 return
             }
+
+
 
 //////////// Determine the weight in the required unit.///////////////////////////
             let weightUnit: HKUnit = HKUnit.poundUnit()
@@ -328,12 +339,18 @@ class ProfileViewController: UIViewController {
                 let weightValue: String = NSNumberFormatter.localizedStringFromNumber(NSNumber(double: usersWeight), numberStyle: NSNumberFormatterStyle.NoStyle)
                    println("MY Weight is: \(weightValue) lbs")
                    self.weightLbl.text =  ("\(weightValue)")
-            })
+
+
+                })
         }
 
         self.healthStore!.mostRecentQuantitySampleOfType(weightType, predicate: nil, completion: completion)
 
+
+               
     }
+
+
 
 //////////////// Get distance walked or ran ////////////////////////////
     func retrieveDistance(completion: () -> ()) {
@@ -398,7 +415,7 @@ class ProfileViewController: UIViewController {
 
         dispatch_async(dispatch_get_main_queue(), {
                 () -> Void in
-                self.stepsLbl.text = "\(self.steps)"
+                self.stepsLbl.text = "\(self.steps)  Steps taken"
 
             if self.distLbl.text != nil && self.stepsLbl.text != nil {
              self.myActInd.stopAnimating()
@@ -428,9 +445,6 @@ class ProfileViewController: UIViewController {
         }
         healthStore!.executeQuery(query)
 
-    }
-    func numberOfRowsInSection(section: Int) -> Int {
-        return 2
     }
 
    

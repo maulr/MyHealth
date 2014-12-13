@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C80385421A2AC1FB00F849B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C80385411A2AC1FB00F849B4 /* Main.storyboard */; };
-		C84589901A2B5BE5002AAE00 /* Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = C845898F1A2B5BE5002AAE00 /* Profile.png */; };
-		C84589921A2B61D9002AAE00 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = C84589911A2B61D9002AAE00 /* test.png */; };
 		C8A504011A238A7100ED907A /* My_HealthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF90581A08011100504E12 /* My_HealthTests.swift */; };
 		C8BF42221A2379DC00CB974A /* AddWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E4DB5D1A2279580029FD8F /* AddWeightViewController.swift */; };
+		C8BF6C441A37B88400562713 /* PastWeightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF6C431A37B88400562713 /* PastWeightsTableViewController.swift */; };
 		C8C6D65D1A08224D0046EF9F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C6D65C1A08224D0046EF9F /* TabBarViewController.swift */; };
 		C8C6D65F1A0826150046EF9F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C6D65E1A0826150046EF9F /* ProfileViewController.swift */; };
 		C8C9CE311A19A890003CC757 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C9CE301A19A890003CC757 /* CoreLocation.framework */; };
@@ -36,8 +35,7 @@
 
 /* Begin PBXFileReference section */
 		C80385411A2AC1FB00F849B4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		C845898F1A2B5BE5002AAE00 /* Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Profile.png; sourceTree = SOURCE_ROOT; };
-		C84589911A2B61D9002AAE00 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = SOURCE_ROOT; };
+		C8BF6C431A37B88400562713 /* PastWeightsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastWeightsTableViewController.swift; sourceTree = "<group>"; };
 		C8C6D65C1A08224D0046EF9F /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C8C6D65E1A0826150046EF9F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C8C9CE301A19A890003CC757 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -53,7 +51,7 @@
 		C8DF90581A08011100504E12 /* My_HealthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_HealthTests.swift; sourceTree = "<group>"; };
 		C8DF90621A08012900504E12 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		C8DF90641A08012900504E12 /* My Health.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "My Health.entitlements"; sourceTree = "<group>"; };
-		C8E4DB5D1A2279580029FD8F /* AddWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWeightViewController.swift; sourceTree = "<group>"; };
+		C8E4DB5D1A2279580029FD8F /* AddWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AddWeightViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +78,6 @@
 		C8DC1F571A25466000D6A61F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				C84589911A2B61D9002AAE00 /* test.png */,
-				C845898F1A2B5BE5002AAE00 /* Profile.png */,
 			);
 			path = images;
 			sourceTree = SOURCE_ROOT;
@@ -129,6 +125,7 @@
 				C8DF90411A08011100504E12 /* Info.plist */,
 				C8C6D65E1A0826150046EF9F /* ProfileViewController.swift */,
 				C8E4DB5D1A2279580029FD8F /* AddWeightViewController.swift */,
+				C8BF6C431A37B88400562713 /* PastWeightsTableViewController.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,10 +237,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8DF904D1A08011100504E12 /* LaunchScreen.xib in Resources */,
-				C84589921A2B61D9002AAE00 /* test.png in Resources */,
 				C8DF904A1A08011100504E12 /* Images.xcassets in Resources */,
 				C80385421A2AC1FB00F849B4 /* Main.storyboard in Resources */,
-				C84589901A2B5BE5002AAE00 /* Profile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8C6D65D1A08224D0046EF9F /* TabBarViewController.swift in Sources */,
+				C8BF6C441A37B88400562713 /* PastWeightsTableViewController.swift in Sources */,
 				C8C6D65F1A0826150046EF9F /* ProfileViewController.swift in Sources */,
 				C8E4DB5E1A2279580029FD8F /* AddWeightViewController.swift in Sources */,
 				C8D171541A08526700B85D29 /* HealthStoreExtensions.swift in Sources */,
