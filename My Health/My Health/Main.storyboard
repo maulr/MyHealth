@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14C78c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="yA0-me-OHd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="yA0-me-OHd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
     </dependencies>
@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RCx-LT-BVi">
-                                <rect key="frame" x="89" y="202" width="142" height="45"/>
+                                <rect key="frame" x="117" y="198" width="86" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <state key="normal" title="Save">
@@ -24,15 +24,8 @@
                                     <action selector="saveWeight:" destination="4fF-cN-aji" eventType="touchUpInside" id="MYL-Hr-1Nh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X5t-dr-03W">
-                                <rect key="frame" x="222" y="45" width="64" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="YT9-rH-fuX">
-                                <rect key="frame" x="73" y="109" width="174" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Weight" minimumFontSize="17" id="YT9-rH-fuX">
+                                <rect key="frame" x="70" y="109" width="181" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -50,7 +43,6 @@
                     <connections>
                         <outlet property="addWeightTxt" destination="YT9-rH-fuX" id="iVE-Qz-4zC"/>
                         <outlet property="saveButton" destination="RCx-LT-BVi" id="9Ih-wR-k0J"/>
-                        <outlet property="testLbl" destination="X5t-dr-03W" id="g9H-En-hT8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffX-lc-Pl3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -172,13 +164,6 @@
                                     <action selector="refreshButton:" destination="g95-mM-eg0" eventType="touchUpInside" id="NSx-eY-4Ve"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" id="Q1Z-JJ-Dee">
-                                <rect key="frame" x="8" y="439" width="288" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="1" green="0.83527749250000005" blue="0.37942690959999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V0F-9Y-5RI">
                                 <rect key="frame" x="155" y="89" width="149" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -214,6 +199,13 @@
                                 <color key="textColor" red="1" green="0.83527749250000005" blue="0.37942690959999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" id="Q1Z-JJ-Dee">
+                                <rect key="frame" x="16" y="439" width="288" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.83527749250000005" blue="0.37942690959999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -231,6 +223,8 @@
                         <outlet property="genderLbl" destination="V0F-9Y-5RI" id="wQk-XZ-TWS"/>
                         <outlet property="heightLbl" destination="KRx-RM-1VW" id="j43-B0-mGD"/>
                         <outlet property="myActInd" destination="c2r-CY-lyW" id="AVs-MV-GQb"/>
+                        <outlet property="profileLbl" destination="a2p-hl-JE6" id="1h2-Sx-Zgo"/>
+                        <outlet property="refreshLbl" destination="SGy-XS-ABW" id="Dg1-bB-GEc"/>
                         <outlet property="stepsLbl" destination="3gK-Te-rhP" id="JJt-cT-jZw"/>
                         <outlet property="weightLbl" destination="D3X-g0-9Ob" id="dN6-4W-9Zo"/>
                     </connections>
@@ -249,7 +243,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="sectionIndexBackgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="aYp-GA-V7P" detailTextLabel="0fU-8d-WOx" style="IBUITableViewCellStyleValue1" id="LQx-8S-Z7G">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -269,9 +263,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -292,7 +285,7 @@
         <scene sceneID="bnP-ug-52s">
             <objects>
                 <navigationController title="PastWeights" id="5wt-Rq-3lX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weights" id="cRs-Yh-nMH"/>
+                    <tabBarItem key="tabBarItem" title="Weight History" id="cRs-Yh-nMH"/>
                     <navigationItem key="navigationItem" id="p1B-fP-eB4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>

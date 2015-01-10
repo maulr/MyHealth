@@ -21,7 +21,7 @@ class PastWeightsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-               title = "Weight History"
+       title = "Weight History"
         self.perfromQueryForWeightSamples()
         // Prepare the formatters
         self.massFormatter.forPersonMassUse = true
@@ -116,7 +116,7 @@ class PastWeightsTableViewController: UITableViewController {
 
  /*  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "WeightsSegue"{
-            let vc = segue.destinationViewController as PastWeightsTableViewController
+            let vc = segue.destinationViewController as ProfileViewController
             self.myHealthStore?
     }
     }*/
@@ -132,7 +132,7 @@ class PastWeightsTableViewController: UITableViewController {
 
         let startDate = NSCalendar.currentCalendar().dateByAddingUnit(.CalendarUnitMonth,
 
-            value: -2, toDate: endDate, options: nil)
+            value: -6, toDate: endDate, options: nil)
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate,
             ascending: false)
 

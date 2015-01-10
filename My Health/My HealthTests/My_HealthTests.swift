@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 import XCTest
-
+import My_Health
+import HealthKit
 
 class My_HealthTests: XCTestCase {
     
@@ -26,12 +27,31 @@ class My_HealthTests: XCTestCase {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
     }
-    
+
+    func testFalse() {
+        XCTAssertFalse(false, "false shoulb be false")
+    }
+
+
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {
             // Put the code you want to measure the time of here.
+
+
+            
         }
+    }
+
+       func testViewDidLoad()
+    {
+        // we only have access to this if we import our project above
+        let v = TabBarViewController()
+        
+
+        // assert that the ViewController.view is not nil
+    //    XCTAssertNotNil(v.view, "View Did Not load")
     }
     
 }

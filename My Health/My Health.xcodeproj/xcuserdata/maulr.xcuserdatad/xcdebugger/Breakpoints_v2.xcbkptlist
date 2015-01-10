@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/ProfileViewController.swift"
-            timestampString = "439162193.832761"
+            timestampString = "442034770.0533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "retrieveUsersWeight()"
             landmarkType = "5">
             <Locations>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/ProfileViewController.swift"
-            timestampString = "439162193.832761"
+            timestampString = "442034770.0533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
             landmarkName = "retrieveUsersWeight()"
             landmarkType = "5">
          </BreakpointContent>
@@ -72,28 +72,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/ProfileViewController.swift"
-            timestampString = "439161749.420718"
+            timestampString = "442034770.0533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My Health/ProfileViewController.swift"
-            timestampString = "439161749.420718"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "actIndStart()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -152,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/ProfileViewController.swift"
-            timestampString = "439164605.811989"
+            timestampString = "442034770.0533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387"
+            startingLineNumber = "452"
+            endingLineNumber = "452"
             landmarkName = "retrieveDistance(_:)"
             landmarkType = "5">
             <Locations>
@@ -198,11 +182,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/ProfileViewController.swift"
-            timestampString = "439164605.811989"
+            timestampString = "442034770.0533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "419"
-            endingLineNumber = "419"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
             landmarkName = "retrieveSteps(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -214,11 +198,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/ProfileViewController.swift"
-            timestampString = "439162193.832761"
+            timestampString = "442034770.0533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
             landmarkName = "retrieveUsersWeight()"
             landmarkType = "5">
          </BreakpointContent>
@@ -230,7 +214,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/PastWeightsTableViewController.swift"
-            timestampString = "439876289.913053"
+            timestampString = "441824358.352782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "157"
@@ -276,7 +260,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/PastWeightsTableViewController.swift"
-            timestampString = "439876289.913053"
+            timestampString = "441824358.352782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
@@ -292,7 +276,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/PastWeightsTableViewController.swift"
-            timestampString = "439876289.913053"
+            timestampString = "441824358.352782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "151"
@@ -308,12 +292,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "My Health/PastWeightsTableViewController.swift"
-            timestampString = "439876289.913053"
+            timestampString = "441824358.352782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
             endingLineNumber = "159"
             landmarkName = "perfromQueryForWeightSamples()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My Health/AddWeightViewController.swift"
+            timestampString = "442050830.298884"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "saveWeight(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

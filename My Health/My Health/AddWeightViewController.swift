@@ -10,23 +10,47 @@ import Foundation
 import UIKit
 import HealthKit
 
+
+
+func delay(#seconds: Double, completion:()->()) {
+    let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64( Double(NSEC_PER_SEC) * seconds ))
+
+    dispatch_after(popTime, dispatch_get_main_queue()) {
+        completion()
+    }
+}
+
 class AddWeightViewController: UIViewController, UITextFieldDelegate{
 
 
-    
+    var runOnce = 0
     var myWeight: HKQuantitySample?
-    @IBOutlet weak var testLbl: UILabel!
-  //  @IBOutlet weak var resultsTextView: UITextView?
     @IBOutlet weak var addWeightTxt: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     let addWeightRightLbl = UILabel(frame:CGRectZero)
      var healthStore = HKHealthStore()
 
-    @IBAction func saveWeight(sender: AnyObject) {
+    let statusView = UIImageView(image: UIImage(named: "banner"))
+    let messages = ["Saved to health...", "Nothing to save..."]
+    let label = UILabel()
 
+
+    /// Save weith to health
+    @IBAction func saveWeight(sender: AnyObject) {
+        self.runOnce = 0
+
+
+        if addWeightTxt.text != "" {
+        UIView.animateWithDuration(0.33, delay: 0.0, options: .CurveEaseOut, animations: {
+            self.saveButton.center.y += 80
+            self.showMessages(index: 0)
+
+        }, completion: nil)
+
+        var bloodSugarType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodGlucose)
         var weightQuantityType = HKQuantityType.quantityTypeForIdentifier(
             HKQuantityTypeIdentifierBodyMass)
-
+//        let bloodUnit : HKUnit = HKUnit
         let weightUnit: HKUnit = HKUnit.poundUnit()
         let weightQuantity = HKQuantity(unit: weightUnit,
             doubleValue: (addWeightTxt.text as NSString).doubleValue)
@@ -36,44 +60,95 @@ class AddWeightViewController: UIViewController, UITextFieldDelegate{
             startDate: now,
             endDate: now)
 
+            println("What is in textbox \(self.addWeightTxt.text)")
         healthStore.saveObject(sample, withCompletion: {
             (succeeded: Bool, error: NSError!) in
-            if error == nil{
+            
+             if error == nil{
+               println("No errors")
 
-                let alertController = UIAlertController(title: "Weight", message:
-                    "Your weight has been saved", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
-                    handler: nil))
+             }
+        })
 
-                self.presentViewController(alertController, animated: true, completion: nil)
-                println("Successfully saved the user's weight")
-                            } else {
+            self.addWeightTxt.resignFirstResponder()
+            //self.addWeightTxt.text = ""
+        }else if self.addWeightTxt.text == "" {
+            //self.statusView.hidden = false
+            self.saveButton.center.y += 80
+            self.showMessages(index: 1)
+            println("No weight to save")
+        }
 
-                let alertController = UIAlertController(title: "Weight", message:
-                    "Your weight has not been saved", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
-                    handler: nil))
+    }
 
-                self.presentViewController(alertController, animated: true, completion: nil)
-                
+    func showMessages(#index: Int) {
 
+        while runOnce < 1 {
+        UIView.animateWithDuration(0.33, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: nil, animations: {
 
-                println("Failed to save the user's weight")
-            }
+            self.statusView.center.x += self.view.frame.size.width
 
+            }, completion: {_ in
+            if self.addWeightTxt.text != "" {
+                self.statusView.hidden = true
+                self.statusView.center.x -= self.view.frame.size.width
+                self.label.text = self.messages[0]
+                }else if self.addWeightTxt.text == "" {
+                    self.statusView.hidden = true
+                    self.statusView.center.x -= self.view.frame.size.width
+                    self.label.text = self.messages[1]
+                }
+
+                UIView.transitionWithView(self.statusView, duration: 0.5, options: .CurveEaseOut | .TransitionCurlDown , animations: {
+                    self.statusView.hidden = false
+                    }, completion: {_ in
+
+                        delay(seconds: 2.0, {
+                        //    if index < self.messages.count-1 {
+                             //   self.showMessages(index: index+1)
+                                if self.addWeightTxt != "" {
+                                    self.showMessages(index: 0)
+                                    self.addWeightTxt.text = ""
+                                   // self.statusView.hidden = true
+                                }
+                            if self.addWeightTxt.text == "" {
+                                    self.showMessages(index: 1)
+                                    self.statusView.hidden = true
+                                self.saveButton.center.y -= 80
+                                }
+                           // }
+                            
+                        })
+                        
+                })
 
         })
-            self.addWeightTxt.resignFirstResponder()
-            self.addWeightTxt.text = ""
+            self.runOnce++
+
+        }
 
 
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarItem.title = "Add Weight"
+        
+        //// Adding Status Banner
+        self.saveButton.center = CGPointMake(165, 198)
+  //      self.statusView.center = CGPointMake(130, 198)//saveButton.center
+        self.statusView.hidden = true
+        self.statusView.center = CGPointMake(165, 198) //self.saveButton.center
+        view.addSubview(statusView)
 
 
+
+        /// Adding Status label
+        label.frame = CGRect(x: 0, y: 0, width: self.statusView.frame.size.width, height: self.statusView.frame.size.height)
+        label.font = UIFont(name: "HelveticaNeue", size: 18.0)
+        label.textColor = UIColor.blackColor()
+        label.textAlignment = .Center
+        self.statusView.addSubview(label)
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -89,13 +164,39 @@ class AddWeightViewController: UIViewController, UITextFieldDelegate{
 
     }
 
+    override func viewWillAppear(animated: Bool) {
+        self.saveButton.center = CGPointMake(165, 198)
+//        self.statusView.center = CGPointMake(130, 198)//saveButton.center
+        self.statusView.hidden = true
+        self.statusView.center = CGPointMake(165, 198) //self.saveButton.center
+    }
+
 
     override func viewDidAppear(animated: Bool) {
+        UIView.animateWithDuration(0.5, delay: 0.33, usingSpringWithDamping: 0.1, initialSpringVelocity: 0, options: nil, animations: {
+            self.saveButton.center.y -= 30
+            self.saveButton.alpha = 1.0
+        }, completion: nil)
+
         self.rtSideTxt()
 
     }
 
+   override func viewWillDisappear(animated: Bool) {
+    self.saveButton.center = CGPointMake(165, 198)
+  //  self.statusView.center = CGPointMake(130, 198)//saveButton.center
+    self.saveButton.center = CGPointMake(165, 198)
+    self.statusView.hidden = true
+    self.statusView.center = CGPointMake(165, 198) //self.saveButton.center
+    self.saveButton.alpha = 1.0
 
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        self.saveButton.center = CGPointMake(165, 250)
+        self.saveButton.center.y -= 30
+        self.saveButton.alpha = 0.0
+    }
 
 
 

@@ -22,9 +22,8 @@ extension Double {
 
 class ProfileViewController: UIViewController {
 
-
-//    var passWeight = String()
     var healthStore: HKHealthStore? = nil
+//    var passWeight = String()
     var distance = 0.0
     var steps = 0
     var totalDist = Double()
@@ -35,9 +34,10 @@ class ProfileViewController: UIViewController {
     var heightValue = String()
 
 
+    @IBOutlet weak var profileLbl: UILabel!
     @IBOutlet weak var genderLbl: UILabel!
     @IBOutlet weak var counterLbl: UILabel!
-
+    @IBOutlet weak var refreshLbl: UIButton!
     @IBOutlet weak var stepsLbl: UILabel!
     @IBOutlet weak var distLbl: UILabel!
     @IBOutlet weak var weightLbl: UILabel!
@@ -47,29 +47,155 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var myActInd: UIActivityIndicatorView!
     
     @IBOutlet weak var adviseUpdateLbl: UILabel!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        if !HKHealthStore.isHealthDataAvailable() {
+            dispatch_async(dispatch_get_main_queue(), {
+                var alert = UIAlertController(
+                    title: "Alert",
+                    message: "HealthKit is not supported on this device.",
+                    preferredStyle: UIAlertControllerStyle.Alert)
+                self.presentViewController(
+                    alert, animated: true, completion: nil)
+                alert.addAction(UIAlertAction(
+                    title: "OK", style: UIAlertActionStyle.Default,
+                    handler: nil))
+                println("HealthKit is not supported on this device.")
+            })
+            return
+        }
+
+        self.healthStore = HKHealthStore()
+        var completion: ((Bool, NSError!) -> Void)! = {
+            (success, error) -> Void in
+            if !success {
+                println(" Health Kit did not access the read/write dataTypes. ERROR is: \(error)")
+
+                return
+            }
+            //            dispatch_async(dispatch_get_main_queue(), {
+            //               () -> Void in
+
+            //                            })
+
+        }
+
+
+        self.healthStore?.requestAuthorizationToShareTypes(dataTypesToWrite(), readTypes: dataTypesToRead(), completion: completion)
+
+
+        
         self.actIndStart()
         self.startRefreshTimer()
 
-       
+    }
 
 
+
+    func dataTypesToWrite() -> NSSet {
+        var bodyTempType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyTemperature)
+        var bodyMassType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+        var stepsType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
+        var weightType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+//        var bloodSugar: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodGlucose)
+        var writeDataTypes: NSSet = NSSet(objects:bodyMassType, bodyTempType,weightType,stepsType)
+        return writeDataTypes
+    }
+
+    ///////// Data types to read from HealthStore ///////////////////////
+    func dataTypesToRead()-> NSSet {
+
+        var weightType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+        var distanceType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDistanceWalkingRunning)
+        var stepsType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
+        var hieghtType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)
+        HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMassIndex)
+        var birthDayType: HKCharacteristicType = HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierDateOfBirth)
+        var genderType = HKCharacteristicType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBiologicalSex)
+//  var bloodSugar: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBloodGlucose)
+        var readDataTypes: NSSet = NSSet(objects: hieghtType, birthDayType, genderType,  distanceType,weightType,stepsType)
+        return readDataTypes
+    }
+
+    
+
+     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        //        profileLbl.center.x -= view.bounds.width
+        genderLbl.center.x -= view.bounds.width
+        weightLbl.center.x -= view.bounds.width
+        heightLbl.center.x -= view.bounds.width
+        ageLbl.center.x -= view.bounds.width
+        dobLbl.center.x -= view.bounds.width
+        distLbl.center.x -= view.bounds.width
+        stepsLbl.center.x -= view.bounds.width
+ //       refreshLbl.center.x -= view.bounds.width
+ //       adviseUpdateLbl.center.x -= view.bounds.width
+
+
+     self.adviseUpdateLbl.text = "Back ground color will change when data is updated automatically every 2min. or by tapping Refresh."
+        self.retrieveDistance(){}
+        self.retrieveSteps(){}
+        self.retrieveUsersWeight()
+        self.retrieveUsersAge()
+        self.retrieveUsersHeight()
+        self.myGender()
+
+           }
+//Add animation to labels ////////////
+     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animateWithDuration(0.22, delay: 0.0, options: .CurveEaseOut, animations: {
+
+            self.genderLbl.center.x += self.view.bounds.width
+
+            }, completion: nil)
+        UIView.animateWithDuration(0.22, delay: 0.3, options: .CurveEaseIn, animations: {
+            self.dobLbl.center.x += self.view.bounds.width
+            }, completion: nil)
+        UIView.animateWithDuration(0.22, delay: 0.4, options: .CurveEaseIn, animations: {
+            self.ageLbl.center.x += self.view.bounds.width
+            }, completion: nil)
+        UIView.animateWithDuration(0.22, delay: 0.5, options: .CurveEaseIn, animations: {
+            self.weightLbl.center.x += self.view.bounds.width
+            }, completion: nil)
+        UIView.animateWithDuration(0.22, delay: 0.6, options: .CurveEaseIn, animations: {
+            self.heightLbl.center.x += self.view.bounds.width
+            }, completion: nil)
+        UIView.animateWithDuration(0.22, delay: 0.7, options: .CurveEaseIn, animations: {
+            self.distLbl.center.x += self.view.bounds.width
+            }, completion: nil)
+        UIView.animateWithDuration(0.22, delay: 0.8, options: .CurveEaseIn, animations: {
+            self.stepsLbl.center.x += self.view.bounds.width
+            }, completion: nil)
+/*        UIView.animateWithDuration(0.33, delay: 0.9, options: .CurveEaseIn, animations: {
+            self.refreshLbl.center.x += self.view.bounds.width
+            }, completion: nil)
+        UIView.animateWithDuration(0.33, delay: 1.0, options: .CurveEaseIn, animations: {
+            self.adviseUpdateLbl.center.x += self.view.bounds.width
+            }, completion: nil)*/
 
     }
 
-     override func viewWillAppear(animated: Bool) {
-     self.adviseUpdateLbl.text = "Back ground color will change when data is updated automatically every 2min. or by tapping Refresh."
-           }
+
 
 ////////// View background color with change when data is updated.//////////
     func changeColor(){
-        if view.backgroundColor == UIColor.blueColor() {
-            view.backgroundColor = UIColor.brownColor()
+
+        UIView.animateWithDuration(1.5, animations: {
+
+
+        if self.view.backgroundColor == UIColor.blueColor() {
+            self.view.backgroundColor = UIColor.brownColor()
         }else {
-            view.backgroundColor = UIColor.blueColor()
+            self.view.backgroundColor = UIColor.blueColor()
         }
+        })
     }
 //////////// Updates Distance and Steps, resets timer to 0//////////
     func refreshTimer() {
@@ -99,50 +225,7 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-        if !HKHealthStore.isHealthDataAvailable() {
-            dispatch_async(dispatch_get_main_queue(), {
-                var alert = UIAlertController(
-                    title: "Alert",
-                    message: "HealthKit is not supported on this device.",
-                    preferredStyle: UIAlertControllerStyle.Alert)
-                self.presentViewController(
-                    alert, animated: true, completion: nil)
-                alert.addAction(UIAlertAction(
-                    title: "OK", style: UIAlertActionStyle.Default,
-                    handler: nil))
-                println("HealthKit is not supported on this device.")
-            })
-            return
-        }
-
-        self.healthStore = HKHealthStore()
-        var completion: ((Bool, NSError!) -> Void)! = {
-            (success, error) -> Void in
-            if !success {
-                println(" Health Kit did not access the read/write dataTypes. ERROR is: \(error)")
-
-                return
-            }
-            dispatch_async(dispatch_get_main_queue(), {
-                () -> Void in
-
-                self.retrieveDistance(){}
-                self.retrieveSteps(){}
-                self.retrieveUsersWeight()
-                self.retrieveUsersAge()
-                self.retrieveUsersHeight()
-                self.myGender()
-            })
-
-        }
-
-
-        self.healthStore?.requestAuthorizationToShareTypes(dataTypesToWrite(), readTypes: dataTypesToRead(), completion: completion)
-    }
-
+ 
 
 
 ///////// Activity Indicator /////////////////////////////
@@ -150,31 +233,6 @@ class ProfileViewController: UIViewController {
         self.myActInd.center = self.view.center
         self.myActInd.hidesWhenStopped = true
         self.myActInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-    }
-////////// Data Types to write from HealthStore //////////
-     func dataTypesToWrite() -> NSSet {
-        var bodyTempType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyTemperature)
-        var bodyMassType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
-        var stepsType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
-        var weightType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
-        // HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMassIndex)
-
-        var writeDataTypes: NSSet = NSSet(objects:bodyMassType, bodyTempType,weightType,stepsType)
-        return writeDataTypes
-    }
-
-///////// Data types to read from HealthStore ///////////////////////
-     func dataTypesToRead()-> NSSet {
-
-        var weightType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
-        var distanceType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDistanceWalkingRunning)
-        var stepsType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)
-        var hieghtType: HKQuantityType = HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)
-            HKQuantityType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMassIndex)
-        var birthDayType: HKCharacteristicType = HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierDateOfBirth)
-        var genderType = HKCharacteristicType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBiologicalSex)
-        var readDataTypes: NSSet = NSSet(objects: hieghtType, birthDayType, genderType,  distanceType,weightType,stepsType)
-        return readDataTypes
     }
 
 /////////Retrieve user's gender//////////////////////////////////
@@ -234,7 +292,7 @@ class ProfileViewController: UIViewController {
 
 ///////////// Retrieve user's default height unit in inches.///////////////////
 
-       func retrieveUsersHeight()
+    func retrieveUsersHeight()
     {
         let setHeightInformationHandle: ((String) -> Void) = {
             (heightValue) -> Void in
@@ -254,7 +312,7 @@ class ProfileViewController: UIViewController {
             (mostRecentQuantity, error) -> Void in
 
             if mostRecentQuantity == nil {
-                println("Either an error occured fetching the user's height information or none has been stored yet. In your app, try to handle this gracefully.")
+                println("Either an error occured getting the user's height information or none has been stored yet in the health app.")
 
                 dispatch_async(dispatch_get_main_queue(), {
                     () -> Void in
